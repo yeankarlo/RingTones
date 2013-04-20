@@ -16,10 +16,10 @@ $(document).ready(function(e) {
 				fileTransfer.download(
 					src,
 					// Envío a la tarjeta SD
-					//'file:///mnt/sdcard/ringtoneApp/'+nom+'.mp3',
+					'file:///mnt/sdcard/ringtoneApp/'+nom+'.mp3',
 					
 					// Envío a la carpeta raíz del teléfono
-					'file:///mnt/ringtoneApp/'+nom+'.mp3',
+					//'file:///mnt/ringtoneApp/'+nom+'.mp3',
 					function(entry) {
 						// Verificar que no exista el archiv en la carpeta
 						navigator.notification.alert("Archivo descargado.",null,"Completado","Ok");

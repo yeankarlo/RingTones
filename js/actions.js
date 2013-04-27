@@ -60,30 +60,29 @@ $(document).ready(function(e) {
 			$('#screen2').attr('title',nom);
 		});		
 		var audio = document.getElementById('Reproductor');
-		var ruta="";
 		$('#screen2 a').tap(function(){
 			//alert($(this).text());
-			if($(this).text()=='Descargar'){				
+			if($(this).text()=='Descargar'){
+				// Acción de descargar				
 				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
 					var ruta=fileSystem.root.fullPath;
-					}, null);
-				// Acción de descargar
-				var fileTransfer = new FileTransfer();
-				fileTransfer.download(
-					src,
-					// Envío a la tarjeta SD
-					ruta+'/ringtoneApp/'+nom+'.mp3',
-					
-					// Envío a la carpeta raíz del teléfono
-					//'file:///mnt/ringtoneApp/'+nom+'.mp3',
-					function(entry) {
-						// Verificar que no exista el archiv en la carpeta
-						navigator.notification.alert("Archivo descargado.",null,"Completado","Ok");
-					},
-					function(error) {
-						navigator.notification.alert("Error en la descarga"+error.code,null,"Error","Ok");
-					}
-				);
+					var fileTransfer = new FileTransfer();
+					fileTransfer.download(
+						src,
+						// Envío a la tarjeta SD
+						ruta+'/ringtoneApp/'+nom+'.mp3',
+						
+						// Envío a la carpeta raíz del teléfono
+						//'file:///mnt/ringtoneApp/'+nom+'.mp3',
+						function(entry) {
+							// Verificar que no exista el archiv en la carpeta
+							navigator.notification.alert("Archivo descargado.",null,"Completado","Ok");
+						},
+						function(error) {
+							navigator.notification.alert("Error en la descarga"+error.code,null,"Error","Ok");
+						}
+					)
+				}, null);
 			}else{
 				// Acción de reproducir
 				//alert(src);

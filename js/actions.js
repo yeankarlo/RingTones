@@ -60,14 +60,13 @@ $(document).ready(function(e) {
 			$('#screen2').attr('title',nom);
 		});		
 		var audio = document.getElementById('Reproductor');
+		var ruta="";
 		$('#screen2 a').tap(function(){
 			//alert($(this).text());
-			if($(this).text()=='Descargar'){
-				var ruta="";
+			if($(this).text()=='Descargar'){				
 				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
 					var ruta=fileSystem.root.fullPath;
 					}, null);
-				alert(ruta);
 				// Acción de descargar
 				var fileTransfer = new FileTransfer();
 				fileTransfer.download(

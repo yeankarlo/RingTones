@@ -63,10 +63,11 @@ $(document).ready(function(e) {
 		$('#screen2 a').tap(function(){
 			//alert($(this).text());
 			if($(this).text()=='Descargar'){
+				var ruta="";
 				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
 					var ruta=fileSystem.root.fullPath;
-					alert(ruta);
 					}, null);
+				alert(ruta);
 				// Acción de descargar
 				var fileTransfer = new FileTransfer();
 				fileTransfer.download(

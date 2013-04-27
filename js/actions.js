@@ -63,12 +63,15 @@ $(document).ready(function(e) {
 		$('#screen2 a').tap(function(){
 			//alert($(this).text());
 			if($(this).text()=='Descargar'){
+				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
+					var ruta=fileSystem.root.fullPath;
+					}, null);
 				// Acción de descargar
 				var fileTransfer = new FileTransfer();
 				fileTransfer.download(
 					src,
 					// Envío a la tarjeta SD
-					'file:///mnt/sdcard/ringtoneApp/'+nom+'.mp3',
+					ruta+'/ringtoneApp/'+nom+'.mp3',
 					
 					// Envío a la carpeta raíz del teléfono
 					//'file:///mnt/ringtoneApp/'+nom+'.mp3',

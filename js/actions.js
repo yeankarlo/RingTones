@@ -65,6 +65,7 @@ $(document).ready(function(e) {
 			if($(this).text()=='Descargar'){
 				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
 					var ruta=fileSystem.root.fullPath;
+					alert(ruta);
 					}, null);
 				// Acción de descargar
 				var fileTransfer = new FileTransfer();
